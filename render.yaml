@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: ile-upload-server
+    env: node
+    region: oregon  # Specify a region like oregon, frankfurt, singapore, etc.
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    plan: free
+    autoDeploy: true
+    branch: main
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
